@@ -18,7 +18,10 @@ void fillPrefixSum(int arr[], int N, int prefixSum[])
 }
 int rangesum(int prefixsum[],int i,int j)
 {
-    return prefixsum[j]-prefixsum[i];
+    if(i==1)
+        return prefixsum[j];
+    else
+        return (prefixsum[j-1]-prefixsum[i-2]);
 }
 int main()
 {
@@ -33,7 +36,7 @@ int main()
     fillPrefixSum(arr,n,prefixsum);
     for(int i=0;i<n;i++)
         cout<<prefixsum[i]<<" ";
-    cout<<"\nEnter range:";
+    cout<<"\nEnter range(Not indexed based):";
     int i,j;
     cin>>i>>j;
     cout<<"sum of given range: "<<rangesum(prefixsum,i,j);
