@@ -12,7 +12,8 @@ vector<int> unionArray(int arr1[],int arr2[],int n,int m)
                 j++;
             else
             {
-                result.push_back(arr2[j]);
+                if(arr1[i]!=arr1[i-1])
+                    result.push_back(arr2[j]);
                 i++;
                 j++;
             }
